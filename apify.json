@@ -1,0 +1,12 @@
+{
+    "name": "linkedin-sales-navigator-scraper",
+    "version": "1.0.0",
+    "buildTag": "latest",
+    "env": {
+        "APIFY_MEMORY_MBYTES": "4096",
+        "APIFY_TIMEOUT_SECS": "900"
+    },
+    "minMemoryMbytes": 4096,
+    "title": "LinkedIn Sales Navigator Scraper",
+    "description": "Extrai dados de leads do LinkedIn Sales Navigator usando autenticação por cookies"
+}
