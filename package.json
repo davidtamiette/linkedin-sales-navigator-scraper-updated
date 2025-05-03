@@ -1,0 +1,42 @@
+{
+    "name": "linkedin-sales-navigator-scraper",
+    "version": "1.0.0",
+    "description": "Ator Apify para extrair dados do LinkedIn Sales Navigator usando autenticação por cookies",
+    "main": "main.js",
+    "dependencies": {
+        "apify": "^3.1.8",
+        "crawlee": "^3.8.2",
+        "puppeteer": "^20.0.0",
+        "puppeteer-extra": "^3.3.6",
+        "puppeteer-extra-plugin-stealth": "^2.11.2",
+        "puppeteer-extra-plugin-adblocker": "^2.13.6",
+        "moment": "^2.29.4",
+        "lodash": "^4.17.21",
+        "tough-cookie": "^4.1.3",
+        "cookie": "^0.5.0",
+        "got-scraping": "^3.2.13",
+        "cheerio": "^1.0.0-rc.12",
+        "random-useragent": "^0.5.0"
+    },
+    "scripts": {
+        "start": "node main.js"
+    },
+    "author": "David Tamiette",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davidtamiette/linkedin-sales-navigator-scraper-updated"
+    },
+    "keywords": [
+        "apify",
+        "linkedin",
+        "sales-navigator",
+        "scraper",
+        "web-scraping",
+        "leads",
+        "prospecting",
+        "cookie-authentication",
+        "leads-generation",
+        "b2b-sales"
+    ]
+}
