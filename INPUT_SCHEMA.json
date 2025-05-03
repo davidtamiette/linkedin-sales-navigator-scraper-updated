@@ -1,0 +1,130 @@
+{
+    "title": "LinkedIn Sales Navigator Scraper",
+    "description": "Extrai dados de leads do LinkedIn Sales Navigator usando autenticação por cookies",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "linkedinCookies": {
+            "title": "LinkedIn Cookies (opcional)",
+            "type": "array",
+            "description": "Array de objetos de cookies do LinkedIn (incluindo at_lt ou li_at). Pode ser usado como alternativa ao cookieString.",
+            "editor": "json",
+            "default": [],
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Nome do Cookie",
+                        "type": "string",
+                        "description": "Nome do cookie (ex: 'at_lt', 'li_at')"
+                    },
+                    "value": {
+                        "title": "Valor do Cookie",
+                        "type": "string",
+                        "description": "Valor do cookie"
+                    },
+                    "domain": {
+                        "title": "Domínio",
+                        "type": "string",
+                        "description": "Domínio do cookie",
+                        "default": ".linkedin.com"
+                    },
+                    "path": {
+                        "title": "Caminho",
+                        "type": "string",
+                        "description": "Caminho do cookie",
+                        "default": "/"
+                    },
+                    "secure": {
+                        "title": "Seguro",
+                        "type": "boolean",
+                        "description": "Cookie é seguro (https)",
+                        "default": true
+                    },
+                    "httpOnly": {
+                        "title": "HTTP Only",
+                        "type": "boolean",
+                        "description": "Cookie é HTTP Only",
+                        "default": true
+                    }
+                },
+                "required": ["name", "value"]
+            }
+        },
+        "cookieString": {
+            "title": "String de Cookies (opcional)",
+            "type": "string",
+            "description": "String de cookies do LinkedIn (formato: 'nome=valor; nome2=valor2'). Alternativa mais simples ao array linkedinCookies.",
+            "editor": "textarea"
+        },
+        "searchType": {
+            "title": "Tipo de Busca",
+            "type": "string",
+            "description": "Escolha entre buscar por URL direta do Sales Navigator ou por palavras-chave",
+            "enum": ["link", "keywords"],
+            "enumTitles": ["URL do Sales Navigator", "Palavras-chave"],
+            "default": "link"
+        },
+        "searchUrl": {
+            "title": "URL de Busca",
+            "type": "string",
+            "description": "URL completa do Sales Navigator (necessário quando searchType = 'link')",
+            "editor": "textfield",
+            "placeholder": "https://www.linkedin.com/sales/search/people?query=(filters:List((type:GEOGRAPHY,values:List((id:102105699,text:Brasil)))))"
+        },
+        "searchKeywords": {
+            "title": "Palavras-chave para busca",
+            "type": "string",
+            "description": "Termos para busca (necessário quando searchType = 'keywords')",
+            "editor": "textfield",
+            "placeholder": "CTO startups tecnologia São Paulo"
+        },
+        "maxLeads": {
+            "title": "Máximo de Leads",
+            "type": "integer",
+            "description": "Número máximo de leads para extrair",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "maxPagesToScrape": {
+            "title": "Máximo de Páginas",
+            "type": "integer",
+            "description": "Número máximo de páginas para extrair",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 100
+        },
+        "proxyConfiguration": {
+            "title": "Configuração de Proxy",
+            "type": "object",
+            "description": "Configurações de proxy para evitar bloqueios",
+            "default": { "useApifyProxy": true },
+            "prefill": { "useApifyProxy": true },
+            "editor": "proxy"
+        }
+    },
+    "required": ["searchType"],
+    "dependencies": {
+        "searchType": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "searchType": {
+                            "enum": ["link"]
+                        }
+                    },
+                    "required": ["searchUrl"]
+                },
+                {
+                    "properties": {
+                        "searchType": {
+                            "enum": ["keywords"]
+                        }
+                    },
+                    "required": ["searchKeywords"]
+                }
+            ]
+        }
+    }
+}
