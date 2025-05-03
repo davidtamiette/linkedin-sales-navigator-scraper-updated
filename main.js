@@ -61,12 +61,17 @@ Actor.main(async () => {
         throw new Error('É necessário fornecer cookies válidos do LinkedIn para autenticação (linkedinCookies ou cookieString)!');
     }
     
-    if (searchType === 'link' && !searchUrl) {
-        throw new Error('Search URL is required when searchType is "link"');
-    }
-    
-    if (searchType === 'keywords' && !searchKeywords) {
-        throw new Error('Search keywords are required when searchType is "keywords"');
+    // Validação manual de acordo com o tipo de busca - implementada no código já que removemos do INPUT_SCHEMA
+    if (searchType === 'link') {
+        if (!searchUrl) {
+            throw new Error('Você escolheu busca por URL (searchType = "link"), mas o campo searchUrl não foi fornecido.');
+        }
+    } else if (searchType === 'keywords') {
+        if (!searchKeywords) {
+            throw new Error('Você escolheu busca por palavras-chave (searchType = "keywords"), mas o campo searchKeywords não foi fornecido.');
+        }
+    } else {
+        throw new Error('searchType inválido. Use "link" ou "keywords".');
     }
     
     // Cria uma fila de requisições
