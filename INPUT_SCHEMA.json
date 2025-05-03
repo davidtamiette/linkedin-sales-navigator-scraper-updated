@@ -104,27 +104,5 @@
             "editor": "proxy"
         }
     },
-    "required": ["searchType"],
-    "dependencies": {
-        "searchType": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "searchType": {
-                            "enum": ["link"]
-                        }
-                    },
-                    "required": ["searchUrl"]
-                },
-                {
-                    "properties": {
-                        "searchType": {
-                            "enum": ["keywords"]
-                        }
-                    },
-                    "required": ["searchKeywords"]
-                }
-            ]
-        }
-    }
+    "required": ["searchType"]
 }
