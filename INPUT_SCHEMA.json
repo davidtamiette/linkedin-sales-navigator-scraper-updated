@@ -2,14 +2,12 @@
     "title": "LinkedIn Sales Navigator Scraper",
     "description": "Extrai dados de leads do LinkedIn Sales Navigator usando autenticação por cookies",
     "type": "object",
-    "schemaVersion": 1,
     "properties": {
         "linkedinCookies": {
             "title": "LinkedIn Cookies (opcional)",
             "type": "array",
             "description": "Array de objetos de cookies do LinkedIn (incluindo at_lt ou li_at). Pode ser usado como alternativa ao cookieString.",
-            "editor": "json",
-            "default": []
+            "editor": "json"
         },
         "cookieString": {
             "title": "String de Cookies (opcional)",
@@ -29,15 +27,13 @@
             "title": "URL de Busca",
             "type": "string",
             "description": "URL completa do Sales Navigator (necessário quando searchType = 'link')",
-            "editor": "textfield",
-            "placeholder": "https://www.linkedin.com/sales/search/people?query=(filters:List((type:GEOGRAPHY,values:List((id:102105699,text:Brasil)))))"
+            "editor": "textfield"
         },
         "searchKeywords": {
             "title": "Palavras-chave para busca",
             "type": "string",
             "description": "Termos para busca (necessário quando searchType = 'keywords')",
-            "editor": "textfield",
-            "placeholder": "CTO startups tecnologia São Paulo"
+            "editor": "textfield"
         },
         "maxLeads": {
             "title": "Máximo de Leads",
@@ -60,7 +56,6 @@
             "type": "object",
             "description": "Configurações de proxy para evitar bloqueios",
             "default": { "useApifyProxy": true },
-            "prefill": { "useApifyProxy": true },
             "editor": "proxy"
         }
     },
