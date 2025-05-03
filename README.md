@@ -158,6 +158,15 @@ Use este método para buscar perfis usando termos específicos:
 }
 ```
 
+## Notas sobre INPUT_SCHEMA.json
+
+O esquema de entrada foi simplificado para maior compatibilidade com a plataforma Apify. Na nova versão:
+
+- O campo `required` indica apenas que `searchType` é obrigatório
+- As validações de tipo de busca (link/keywords) são feitas no código principal
+- Ao usar o tipo `link`, você deve fornecer o campo `searchUrl`
+- Ao usar o tipo `keywords`, você deve fornecer o campo `searchKeywords`
+
 ## Modificações Importantes no Código
 
 ### 1. Substituição do `waitForTimeout`
