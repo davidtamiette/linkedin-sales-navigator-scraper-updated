@@ -9,47 +9,7 @@
             "type": "array",
             "description": "Array de objetos de cookies do LinkedIn (incluindo at_lt ou li_at). Pode ser usado como alternativa ao cookieString.",
             "editor": "json",
-            "default": [],
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "title": "Nome do Cookie",
-                        "type": "string",
-                        "description": "Nome do cookie (ex: 'at_lt', 'li_at')"
-                    },
-                    "value": {
-                        "title": "Valor do Cookie",
-                        "type": "string",
-                        "description": "Valor do cookie"
-                    },
-                    "domain": {
-                        "title": "Domínio",
-                        "type": "string",
-                        "description": "Domínio do cookie",
-                        "default": ".linkedin.com"
-                    },
-                    "path": {
-                        "title": "Caminho",
-                        "type": "string",
-                        "description": "Caminho do cookie",
-                        "default": "/"
-                    },
-                    "secure": {
-                        "title": "Seguro",
-                        "type": "boolean",
-                        "description": "Cookie é seguro (https)",
-                        "default": true
-                    },
-                    "httpOnly": {
-                        "title": "HTTP Only",
-                        "type": "boolean",
-                        "description": "Cookie é HTTP Only",
-                        "default": true
-                    }
-                },
-                "required": ["name", "value"]
-            }
+            "default": []
         },
         "cookieString": {
             "title": "String de Cookies (opcional)",
