@@ -8,6 +8,7 @@ Esta é uma versão atualizada e otimizada do LinkedIn Sales Navigator Scraper p
 - **Dependências Atualizadas**: Versões mais recentes do Puppeteer e outras dependências
 - **Melhorias de Desempenho**: Configurações otimizadas para uso eficiente de memória
 - **Timeouts Estendidos**: Valores de timeout aumentados para maior estabilidade
+- **Esquema de Input Simplificado**: Maior compatibilidade com a plataforma Apify
 
 ## Características
 
@@ -160,8 +161,9 @@ Use este método para buscar perfis usando termos específicos:
 
 ## Notas sobre INPUT_SCHEMA.json
 
-O esquema de entrada foi simplificado para maior compatibilidade com a plataforma Apify. Na nova versão:
+O esquema de entrada foi extremamente simplificado para maior compatibilidade com a plataforma Apify. Na nova versão:
 
+- O campo `linkedinCookies` é um array simples sem definição de subitens (estrutura "items")
 - O campo `required` indica apenas que `searchType` é obrigatório
 - As validações de tipo de busca (link/keywords) são feitas no código principal
 - Ao usar o tipo `link`, você deve fornecer o campo `searchUrl`
